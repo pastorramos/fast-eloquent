@@ -1,0 +1,39 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.page-link {
+    display: block;
+    border: 1px solid $gray;
+    margin: 0 0 12px -1px;
+    padding: 10px;
+    color: lighten($mirage, 20%);
+    background: $white;
+    text-decoration: none;
+
+    &:hover {
+        color: $mirage;
+        background: $light_gray;
+    }
+}
+
+.page-item {
+    &.active {
+        .page-link {
+            background: lighten($mirage, 20%);
+            color: $white;
+            border: 1px solid lighten($mirage, 20%);
+            margin-left: 0;
+        }
+    }
+
+    &.disabled {
+        .page-link {
+            background: $white;
+            color: $gray;
+        }
+
+    }
+}

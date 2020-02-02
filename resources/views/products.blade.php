@@ -1,19 +1,33 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <ul>
-        @foreach ($products as $product)
-            <li>
-                <strong>{{ $product->title }}</strong> - {{ $product->category->title }}
-            </li>
-        @endforeach
-    </ul>
-</body>
-</html>
+@extends('layout')
+
+@section('title', 'Listado de productos')
+
+@section('content')
+    <main class="content">
+        <div class="items">
+    @forelse($products as $product)
+        <div class="item">
+            <img src="{{ asset("images/products/{$product->image}") }}" alt="Product image" width="300px" height="200px" class="item-image">
+
+            <div class="item-body">
+                <h4>
+                    <a href="{{ url('productos/'.$product->slug) }}">
+                        {{ $product->title }}
+                    </a>
+                </h4>
+
+                <p>
+                    <a href="{{ url('productos/categoria/'.$product->category->slug) }}">
+                        {{ $product->category->title }}
+                    </a>
+                </p>
+            </div>
+        </div>
+    @empty
+        <p>No se encontraron productos
+    @endforelse
+
+        </div>
+    </main>
+@endsection
+
