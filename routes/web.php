@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('productos', function () {
-   $products = \App\Product::all();
+   $products = \App\Product::with('category')->get();
 
    return view('products', ['products' => $products]);
 });
