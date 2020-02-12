@@ -1,5 +1,3 @@
-<h1>Pagination</h1>
-
 @if ($paginator->hasPages())
     <nav>
         <ul class="pagination">
