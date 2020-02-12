@@ -21,7 +21,7 @@ Route::get('productos', function () {
    $products = Product::query()
        ->select(['title', 'slug', 'category_id', 'image'])
        ->with('category:id,title,slug')
-       ->get();
+       ->simplePaginate();
 
    return view('products', ['products' => $products]);
 });

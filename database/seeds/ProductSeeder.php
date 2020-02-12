@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
         $categories = \App\ProductCategory::pluck('id');
 
         foreach ($categories as $categoryId) {
-            factory(\App\Product::class)->times(rand(12, 28))->create([
+            factory(\App\Product::class)->times(rand(1200, 2800))->create([
                 'category_id' => $categoryId,
             ]);
         }
