@@ -11,6 +11,10 @@ class ProductCategorySeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\ProductCategory::class)->times(50)->create([]);
+        factory(\App\ProductCategory::class)->create([
+            'title'=>'Cursos de Laravel',
+        ]);
+
+        factory(\App\ProductCategory::class)->times(49)->create([]);
     }
 }
